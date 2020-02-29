@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DINTRANET.Models.revista>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.categoriaRevista.categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreRevista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcionRevista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ubicacionPortadaRevista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ubicacionRevista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaPublicacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoriaRevista.categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreRevista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcionRevista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ubicacionPortadaRevista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ubicacionRevista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaPublicacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.revistaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.revistaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.revistaId })
+        </td>
+    </tr>
+}
+
+</table>

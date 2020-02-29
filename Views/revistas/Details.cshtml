@@ -1,0 +1,67 @@
+﻿@model DINTRANET.Models.revista
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>revista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoriaRevista.categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoriaRevista.categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreRevista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreRevista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionRevista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionRevista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ubicacionPortadaRevista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ubicacionPortadaRevista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ubicacionRevista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ubicacionRevista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaPublicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaPublicacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.revistaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
