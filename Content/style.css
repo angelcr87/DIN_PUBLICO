@@ -1440,11 +1440,11 @@ blockquote p {
   position: fixed;
   width: 36px;
   height: 36px;
-  background-color: rgba(0, 0, 0, 0.3);
+  /*background-color: rgba(0, 0, 0, 0.3);*/
   font-size: 20px;
   line-height: 34px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  /*color: rgba(255, 255, 255, 0.6);*/
   top: auto;
   left: auto;
   right: 40px;
@@ -1457,8 +1457,18 @@ blockquote p {
 }
 
 #gotoTop:hover {
-  background-color: #19b698;
+  /*background-color: #19b698;*/
   color: white;
+
+
+  -webkit-transition: all 0.5s ease-out;
+ -moz-transition: all 0.5s ease;
+ -ms-transition: all 0.5s ease;
+
+  -webkit-transform: rotate(-360deg);
+ -moz-transform: rotate(-360deg);
+ -ms-transform: rotate(-360deg);
+ transform: rotate(-360deg);
 }
 
 .myBtn {
