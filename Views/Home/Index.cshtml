@@ -159,15 +159,15 @@ function carousel() {
                 <div class="col-md-3 col-sm-3">
                     <ul class="tabs-menu">
 
-                        <li class="active"><a href="#tab_0" data-toggle="tab"><span> Selecciona... </span></a></li>
+                        @*<li class="active"><a href="#tab_0" data-toggle="tab"><span> Selecciona... </span></a></li>*@
 
-                        @foreach (var año in evt.GroupBy(item => item.fecha_final.Year))
-                        {
+                        @*@foreach (var año in evt.GroupBy(item => item.fecha_final.Year))
+                        {*@
                         @*@Html.Encode(grupo.Key)*@
 
-                        foreach (var mes in año.GroupBy(i => i.fecha_Inicio.Month))
+                        @foreach (var mes in evt.GroupBy( i => new { i.fecha_Inicio.Year , i.fecha_Inicio.Month }))
                         {
-                            if (x == 1)
+                            @*if (x == 1)
                             {
 
 
@@ -179,14 +179,23 @@ function carousel() {
 
 
 
-                        @*<li class=""><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", item.fecha_Inicio)</span>*@   @*<span>@String.Format("{0:yyyy}", item.fecha_Inicio)</span></a></li>*@
+                        
                         <li class=""><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(año.Key) + "/" + Html.Encode(mes.Key) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(año.Key) + "/" + Html.Encode(mes.Key) + "/01")) </span></a></li>
-                                }
+                                }*@
 
+                        if (int.Parse(Html.Encode(mes.Key.Month)) == DateTime.Today.Month && int.Parse(Html.Encode(mes.Key.Year)) == DateTime.Today.Year)
+                        {
+                            <li class="active"><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01")) </span></a></li>
 
+                         }
+                        else
+                         {
+                           <li class=""><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01")) </span></a></li>
+                         }
+                                                                
                                 x++;
                             }
-                        }
+                        @*}*@
                     </ul>
                 </div>
 
@@ -195,41 +204,89 @@ function carousel() {
                     <div class="tab-content">
 
 
-                        @foreach (var grupo in evt.GroupBy(item => new { item.fecha_Inicio.Year, item.fecha_Inicio.Month  }))
+                        @foreach (var grupo in evt.GroupBy(item => new { item.fecha_Inicio.Year, item.fecha_Inicio.Month }))
                         {
                             z = 1;
                             //foreach (var grupo2 in grupo.GroupBy(j => j.fecha_Inicio.Year))
                             //{
 
-                        <div class="tab-pane" id="tab_@y">
-                            <div class="panel-group" id="@("accordion_" + y)">
-                                <div class="panel panel-faq active">
+                            if (int.Parse(Html.Encode(grupo.Key.Month)) == DateTime.Today.Month && int.Parse(Html.Encode(grupo.Key.Year)) == DateTime.Today.Year)
+                            {
+                                <div class="tab-pane active" id="tab_@y">
+                                    <div class="panel-group" id="@("accordion_" + y)">
 
-                                    @foreach (var item in grupo.OrderBy(i => i.fecha_Inicio.Date))
-                                        {
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a href="@("#accordion" + y + "_" + z)" data-parent="@("#accordion_" + y)" data-toggle="collapse">
-                                                    @item.titulo ( @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)  )
-                                                </a>
-                                            </h4>
-                                        </div>
+
+                                        @*<div class="panel panel-faq active">*@
+                                        <div class="panel panel-faq">
+
+                                            @foreach (var item in grupo.OrderBy(i => i.fecha_Inicio.Date))
+                                            {
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a href="@("#accordion" + y + "_" + z)" data-parent="@("#accordion_" + y)" data-toggle="collapse">
+                                                            ( @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)  ) @item.titulo
+                                                        </a>
+                                                    </h4>
+                                                </div>
                                         <!-- <div class="panel-collapse collapse in" id="accordion1_1"> -->
-                                        <div class="panel-collapse collapse" id="@("accordion" + y + "_" + z)">
-                                            <div class="panel-body">
-                                                @item.descripcion
-                                                <br><br>
-                                                @* @img = @String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto)*@
+                                                <div class="panel-collapse collapse" id="@("accordion" + y + "_" + z)">
+                                                    <div class="panel-body">
+                                                        @item.descripcion
+                                                        <br><br>
+                                                        @* @img = @String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto)*@
 
-                                                <img src="@Url.Content(String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto))" alt="">
-                                            </div>
+                                                        <img src="@Url.Content(String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto))" alt="">
+                                                    </div>
+                                                </div>
+                                                z++;
+
+                                            }
                                         </div>
-                                            z++;
 
-                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            }
+
+                            else
+                            {
+
+                                <div class="tab-pane" id="tab_@y">
+                                    <div class="panel-group" id="@("accordion_" + y)">
+
+
+                                        @*<div class="panel panel-faq active">*@
+                                        <div class="panel panel-faq">
+
+                                            @foreach (var item in grupo.OrderBy(i => i.fecha_Inicio.Date))
+                                            {
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a href="@("#accordion" + y + "_" + z)" data-parent="@("#accordion_" + y)" data-toggle="collapse">
+                                                           ( @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)  ) @item.titulo
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                        <!-- <div class="panel-collapse collapse in" id="accordion1_1"> -->
+                                                <div class="panel-collapse collapse" id="@("accordion" + y + "_" + z)">
+                                                    <div class="panel-body">
+                                                        @item.descripcion
+                                                        <br><br>
+                                                        @* @img = @String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto)*@
+
+                                                        <img src="@Url.Content(String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto))" alt="">
+                                                    </div>
+                                                </div>
+                                                z++;
+
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            }
+
+
 
                         @*}*@
                             y++;

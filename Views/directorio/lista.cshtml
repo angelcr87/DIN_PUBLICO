@@ -34,7 +34,7 @@
                         <div class="col col-1"><center>Sucursal</center></div>
                         <div class="col col-1"><center>Direccion</center></div>
                         <div class="col col-1"><center>Horario</center></div>
-                        <div class="col col-3"><center>Gerente Zona</center></div>
+                        <div class="col col-3"><center>Gerente de Sucursal</center></div>
                         @*<div class="col col-1">Celular</div>*@
                         <div class="col col-3"><center>Encargados</center></div>
                         <div class="col col-1"><center>Telefono Suc.</center></div>
@@ -45,9 +45,10 @@
                     @foreach (var item in Model.Where( s => s.tipo == "Sucursal"))
                     {
                         <li class="table-row">
-                            <div class="col col-1" data-label="Sucursal"><center> @item.sucursal</center></div>
+                            <div class="col col-1" data-label="Sucursal"><center> <span style="font-weight:bold; font-size:large;" >@item.sucursal</span> </center></div>
                             <div class="col col-1" data-label="Direccion"><center> @item.direccion</center></div>
-                            <div class="col col-1" data-label="Horario"><center> @String.Format("{0:t}", @item.horario_apertura) - @String.Format("{0:t}", @item.horario_cierrre)</center> </div>
+                            @*<div class="col col-1" data-label="Horario"><center> @String.Format("{0:t}", @item.horario_apertura) - @String.Format("{0:t}", @item.horario_cierrre)</center> </div>*@
+                            <div class="col col-1" data-label="Horario"><center> @String.Format("{0:00}", item.horario_apertura.Hours):@String.Format("{0:00}", item.horario_apertura.Minutes) - @String.Format("{0:00}", item.horario_cierrre.Hours):@String.Format("{0:00}", item.horario_cierrre.Minutes)  </center> </div>
                             <div class="col col-3" data-label="Gerente Zona"><center> @item.gerente_zona <br /> Cel: @item.cel_gerente </center></div>
                             @*<div class="col col-1" data-label="Celular"> </div>*@
                             <div class="col col-3" data-label="Encargados">
@@ -120,7 +121,7 @@
 
                         <div class="col col-1"><center>Departamento</center></div>
                         <div class="col col-1"><center>Horario</center></div>
-                        <div class="col col-3"><center>Gerente</center></div>
+                        <div class="col col-3"><center>Jefe de Área</center></div>
                         @*<div class="col col-1">Celular</div>*@
                         <div class="col col-3"><center>Encargados</center></div>
                         <div class="col col-1"><center>Telefono</center></div>
@@ -131,8 +132,9 @@
                     @foreach (var item in Model.Where(s => s.tipo =="Staff"))
                     {
                         <li class="table-row">
-                            <div class="col col-1" data-label="Departamento"><center> @item.sucursal</center></div>
-                            <div class="col col-1" data-label="Horario"><center> @String.Format("{0:t}", @item.horario_apertura) - @String.Format("{0:t}", @item.horario_cierrre)</center> </div>
+                            <div class="col col-1" data-label="Departamento"><center><span style="font-weight:bold; font-size:large;"> @item.sucursal </span></center></div>
+                            @*<div class="col col-1" data-label="Horario"><center> @String.Format("{0:t}", @item.horario_apertura) - @String.Format("{0:t}", @item.horario_cierrre)</center> </div>*@
+                            <div class="col col-1" data-label="Horario"><center> @String.Format("{0:00}", item.horario_apertura.Hours):@String.Format("{0:00}", item.horario_apertura.Minutes) - @String.Format("{0:00}", item.horario_cierrre.Hours):@String.Format("{0:00}", item.horario_cierrre.Minutes)  </center> </div>
                             <div class="col col-3" data-label="Gerente"><center> @item.gerente_zona <br /> Cel: @item.cel_gerente </center></div>
                             @*<div class="col col-1" data-label="Celular"> </div>*@
                             <div class="col col-3" data-label="Encargados">

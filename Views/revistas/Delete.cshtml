@@ -5,69 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>revista</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.categoriaRevista.categoria)
-        </dt>
+<div class="contenedor_forms">
 
-        <dd>
-            @Html.DisplayFor(model => model.categoriaRevista.categoria)
-        </dd>
+<div class="container">
+    <div class="row">
+        <h3>Estas Seguro que Deseas Eliminar el Registro?</h3>
+        <hr />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreRevista)
-        </dt>
+        <div class="col-md-6">
+            <dl class="dl-horizontal" >
+                <dt style="padding-bottom:30px;">
+                    @Html.DisplayNameFor(model => model.categoriaRevista.categoria)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombreRevista)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.categoriaRevista.categoria)
+                </dd>
+                
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcionRevista)
-        </dt>
+                <dt style="padding-bottom:30px;">
+                    @Html.DisplayNameFor(model => model.nombreRevista)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcionRevista)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.nombreRevista)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ubicacionPortadaRevista)
-        </dt>
+                <dt style="padding-bottom:30px;">
+                    @Html.DisplayNameFor(model => model.descripcionRevista)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ubicacionPortadaRevista)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.descripcionRevista)
+                </dd>
+            </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ubicacionRevista)
-        </dt>
+        </div>
+        <div class="col-md-4">
+            <img src="@Url.Content(Model.ubicacionPortadaRevista)" style="width:100%; height:auto;" />
 
-        <dd>
-            @Html.DisplayFor(model => model.ubicacionRevista)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaPublicacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fechaPublicacion)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la Lista", "Lista")
         </div>
     }
+     
+</div>
+
 </div>

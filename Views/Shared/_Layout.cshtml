@@ -51,7 +51,7 @@
     @Scripts.Render("~/bundles/datatablejs")
    
 
-    @Scripts.Render("~/bundles/miScript")
+    
 
     @Styles.Render("~/bundles/datatablecss")
     
@@ -181,10 +181,10 @@
                             @*<a href="index.html">Home</a>*@
                             @Html.ActionLink("Inicio", "Index", "Home")
                         </li>
-                        @*<li><a href="#eventos">Eventos</a></li>*@
-                        <li>
+                       
+                        @*<li>
                             @Html.ActionLink("Organigrama","organigrama","Home")
-                        </li>
+                        </li>*@
                         <li>
                             <a href="#servicios">Mis Servicios</a>
                             <ul>
@@ -199,6 +199,10 @@
                                
                                 <li>
                                     @Html.ActionLink("Biblioteca", "Index", "bibliotecas")
+                                </li>
+                                <li>
+                                    
+                                    @Html.ActionLink("Revistas", "Index", "revistas")
                                 </li>
 
                                 <li>
@@ -572,9 +576,9 @@
               =================== Go to Top ===================
               ============================================= -->
 
-    @*<div id="gotoTop" class="fa fa-angle-up hidden-md">
-    </div>*@
-    <img  id="gotoTop" src="~/assets/images/icons/moneda.png" style="width:4%; height:auto;" />
+    <div id="gotoTop" class="fa fa-angle-up hidden-md">
+    </div>
+    @*<img  id="gotoTop" src="~/assets/images/icons/moneda.png" style="width:4%; height:auto;" />*@
 
    
 
@@ -620,6 +624,8 @@
 
     <script src="~/Scripts/script_galeria.js"></script>*@
     @Scripts.Render("~/bundles/galeriajs")
+
+    @Scripts.Render("~/bundles/miScript")
 
 
     <!-- ============================================

@@ -33,16 +33,95 @@ google_ad_height = 90;
 
     </section><!-- #breadcrumbs end -->
 
-@if (Session["usuario"] != null)
-{
 
 
-    //var usr = (DINTRANET.Models.usuarios)Session["usuario"];
-    if (usr.rolId == 1)
-    {
-        <center>
-            <button type="submit" id="btnPublicar" class="myBtn myBtn-rounded myBtn-3d m-0 mt-10">Realizar Publicacion</button>
-        </center>
+
+    @*//var usr = (DINTRANET.Models.usuarios)Session["usuario"];*@
+    
+        
+        <div class="row">
+
+            <div class="comunidadBotones col-lg-4 col-md-4 col-sm-4">
+                @if (Session["usuario"] != null)
+                {
+                    if (usr.rolId == 1)
+                    {
+                        @*<center>*@
+                        <div style="text-align:center; margin-top:50px;">
+                            <button type="submit" id="btnPublicar" class="myBtn myBtn-rounded myBtn-3d m-0 mt-10">Realizar Publicacion</button>
+                        </div>
+                        @*</center>*@
+                    }
+                }
+
+            </div>
+            @*<hr style="border-left: 1px solid hsla(200, 10%, 50%,100); border:none; height: 100vh; width:1px;" />*@
+
+
+            <div class="comunidadBotones col-lg-4 col-md-4 col-sm-4">
+                <div style="text-align:center;">
+                    <h4 class="widget-heading">Filtrar</h4>
+
+                    @using (Html.BeginForm("index", "comunidadDIN", FormMethod.Post, new { id = "form" }))
+                    {
+
+                        <p>
+
+
+                            @Html.DropDownList("Categoria", null, "-- Selecciona Categoria para Filtrar --", htmlAttributes: new { @class = "js-example-basic-multiple", @Style = "width:90%;" })
+
+                        </p>
+                        <p>
+
+                            @Html.DropDownList("Anio", null, "-- Selecciona Año para Filtrar --", htmlAttributes: new { @class = "js-example-basic-multiple", @Style = "width:90%;" })
+
+
+                        </p>
+                            <p>
+                                <button type="submit" id="Filtrar" class="myBtn myBtn-rounded myBtn-3d m-0 mt-10">Filtrar</button>
+                            </p>
+
+
+                    }
+
+                    
+                </div>
+             </div>
+
+
+            <div class="comunidadBotones col-lg-4 col-md-4 col-sm-4">
+                <div style="text-align:center;">
+                    <!-- CATEGORIES -->
+                    @if (Session["usuario"] != null)
+                    {
+                        <h4 class="widget-heading">Categorias</h4>
+                    }
+
+
+                    <ul class="nav categories sidebar-widget">
+
+                        @if (Session["usuario"] != null)
+                        {
+
+                            if (usr.rolId == 1)
+                            {
+
+                                <li><a href="#" data-toggle="modal" data-target="#modalCategoriaCreate"><i class="fa fa-angle-right mr-5"></i>Crear Categoria </a></li>
+                                <li><a href="#" onclick="location.href='@Url.Action("Index","categoriasBlogs")'"><i class="fa fa-angle-right mr-5"></i>Administrar Categorias </a></li>
+                            }
+
+
+
+                        }
+
+
+                    </ul>
+                    <!-- END CATEGORIES -->
+                    </div>
+                </div>
+
+        </div>
+
         <hr class="post-divider">
         <div id="divPublicador" class="contenedor_forms" style="display:none;">
 
@@ -104,9 +183,9 @@ google_ad_height = 90;
             });
 
         </script>
-    }
+    
 
-}
+
 
 
 
@@ -116,7 +195,7 @@ google_ad_height = 90;
                 <div class="row">
 
                     <!-- BLOG POSTS -->
-                    <div class="col-sm-8 blog-posts">
+                    <div class="col-sm-12 blog-posts">
                         @if (Model.Count() == 0)
                         {
                             <h2> NO SE ENCONTRARON REGISTROS  </h2>
@@ -127,21 +206,25 @@ google_ad_height = 90;
                         {
 
                             <article class="post-entry">
-
+                                <div class="entry-title">
+                                    <h2 class="text-uppercase"><a href="~/comunidadDIN/comentarios/@item.postId">@item.titulo</a></h2>
+                                    
+                                    <center>
+                                        <ul class="entry-meta clearfix">
+                                            <li><i class="fa fa-calendar-o"></i> @String.Format("{0:dd/MMM/yyyy}", item.fecha_Creacion)
+                                            <li>
+                                            <li><i class="fa fa-comments"></i>@item.comentariosBlog.Count</li>
+                                        </ul>
+                                    </center>
+                                    <br />
+                                </div>
                                 <div class="entry-image">
                                     <img src="@Url.Content(item.imagen)" class="img-responsive" alt="Image" style="image-orientation:from-image; margin:auto;">
                                 </div>
 
-                                <div class="entry-title">
-                                    <h2 class="text-uppercase"><a href="~/comunidadDIN/comentarios/@item.postId">@item.titulo</a></h2>
-                                </div>
+                                
 
-                                <ul class="entry-meta clearfix">
-                                    <li><i class="fa fa-calendar-o"></i> @String.Format("{0:dd/MMM/yyyy}", item.fecha_Creacion)
-                                    <li>
-                                    <li><i class="fa fa-comments"></i>@item.comentariosBlog.Count</li>
-
-                                </ul>
+                                
 
                                 <div class="entry-content">
                                     <p> @item.contenido </p>
@@ -166,27 +249,13 @@ google_ad_height = 90;
 
 
 
-                        @*<div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8 text-center">
-                                    <ul class="pagination myPagination">
-                                        <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><span>3</span></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2"></div>
-                            </div>*@
+                      
 
                     </div>
                     <!-- END BLOG POSTS -->
                     <!-- BLOG SIDEBAR -->
 
-                    <div class="col-sm-4 sidebar">
+                    @*<div class="col-sm-4 sidebar">
 
 
 
@@ -196,16 +265,15 @@ google_ad_height = 90;
                             <h4 class="widget-heading">Categorias</h4>
                         }
 
-                        @*<button type="button" data-toggle="modal" data-target="#modalCategoriaCreate" class="myBtn myBtn-rounded myBtn-3d m-0 mt-10">Crear Categoria</button>
-                            <button type="button" onclick="location.href='@Url.Action("Index","categoriasBlogs")'" class="myBtn myBtn-rounded myBtn-3d m-0 mt-10">Administrador Categorias</button>*@
+                        
                         <ul class="nav categories sidebar-widget">
 
                             @if (Session["usuario"] != null)
                             {
-                                //var usr = (DINTRANET.Models.usuarios)Session["usuario"];
+                                
                                 if (usr.rolId == 1)
                                 {
-                                    @*<a href="#" class="myBtn myBtn-rounded myBtn-border myBtn-lg myBtn-midlight m-0 mt-10"><i class="fa fa-angle-right"></i> Administrar Categorias</a>*@
+                                    
                                     <li><a href="#" data-toggle="modal" data-target="#modalCategoriaCreate"><i class="fa fa-angle-right mr-5"></i>Crear Categoria </a></li>
                                     <li><a href="#" onclick="location.href='@Url.Action("Index","categoriasBlogs")'"><i class="fa fa-angle-right mr-5"></i>Administrar Categorias </a></li>
                                 }
@@ -214,22 +282,7 @@ google_ad_height = 90;
 
                             }
 
-                            @*@if (ViewBag.li == true)
-                                {
-                                    <li><a href="@Url.Content(String.Format("~/ComunidadDIN?categoria={0}",""))"><i class="fa fa-angle-right mr-5"></i>Todas las Publicaciones </a></li>
-                                }*@
-
-
-
-
-                            @*@foreach (var item in Model.GroupBy(c => c.categoriasBlog.nombre))
-                                {
-
-                                    <li><a href="@Url.Content(String.Format("~/ComunidadDIN?categoria={0}",@Html.Encode(item.Key)))"><i class="fa fa-angle-right mr-5"></i> @Html.Encode(item.Key) </a></li>
-
-
-                                }*@
-
+                          
                         </ul>
                         <!-- END CATEGORIES -->
 
@@ -249,24 +302,7 @@ google_ad_height = 90;
 
                                             @Html.DropDownList("Anio", null, "-- Selecciona Año para Filtrar --", htmlAttributes: new { @class = "js-example-basic-multiple", @Style = "width:90%;" })
 
-                                            @*<select class="js-example-basic-multiple" name="filtroAnio">
-
-                                                    <option value="">Selecciona Año para Filtrar</option>
-                                                    @foreach (var item in Model.GroupBy(p => p.fecha_Creacion.Year))
-                                                    {
-                                                        if (ViewBag.YearSelected == @Html.Encode(item.Key))
-                                                        {
-                                                            <option value="@Html.Encode(item.Key)" selected="selected">@Html.Encode(item.Key)</option>
-                                                        }
-                                                        else
-                                                        {
-                                                            <option value="@Html.Encode(item.Key)">@Html.Encode(item.Key)</option>
-                                                        }
-
-
-
-                                                    }
-                                                </select>*@
+                                           
                                         </p>
                                         <p>
                                             <button type="submit" id="Filtrar" class="myBtn myBtn-rounded myBtn-3d m-0 mt-10">Filtrar</button>
@@ -281,7 +317,7 @@ google_ad_height = 90;
 
 
 
-                    </div>
+                    </div>*@
 
 
                     <!-- END BLOG SIDEBAR -->

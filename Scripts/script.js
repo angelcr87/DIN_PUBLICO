@@ -50,6 +50,7 @@ $(document).ready(function () {
     });
     
     
+    $('#listaRevistas').DataTable();
     $('#categoriaRevistas').DataTable();
     $('#listaCatBiblioteca').DataTable();
     $('#listaBiblioteca').DataTable();

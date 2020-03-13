@@ -1440,11 +1440,11 @@ blockquote p {
   position: fixed;
   width: 36px;
   height: 36px;
-  /*background-color: rgba(0, 0, 0, 0.3);*/
+  background-color: rgba(0, 0, 0, 0.3);
   font-size: 20px;
   line-height: 34px;
   text-align: center;
-  /*color: rgba(255, 255, 255, 0.6);*/
+  color: rgba(255, 255, 255, 0.6);
   top: auto;
   left: auto;
   right: 40px;
@@ -1457,8 +1457,8 @@ blockquote p {
 }
 
 #gotoTop:hover {
-  /*background-color: #19b698;*/
-  color: white;
+  background-color: #19b698;
+  /*color: white;*/
 
 
   -webkit-transition: all 0.5s ease-out;
@@ -4407,5 +4407,131 @@ h2 small {
 /*TERMINA TABLA DIRECTORIO*/
 
 
+
+
+/*INICIA ESTILOS PORTAFOLIO DE REVISTAS*/
+
+/** {
+  box-sizing: border-box;
+}*/
+
+/*body {
+  
+  padding: 20px;
+  font-family: Arial;
+}*/
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.rowRevista {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.rowRevista,
+.rowRevista > .column {
+  padding: 8px;
+  background-color:lightgray;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+
+   
+}
+
+/* Clear floats after rows */ 
+.rowRevista:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+ .contentRevista{
+  /*background-color: white;*/
+  background-color:#120a05;
+  padding: 10px;
+  color:white;
+  height:580px;
+  
+}
+
+ .contentRevista a h3{
+     color:white;
+ }
+
+ .contentRevista a img{
+     margin:auto;
+ }
+
+
+ 
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+   
+  }
+}
+
+
+@media screen and (max-width:800px)
+{
+    .comunidadBotones{
+        border-bottom: 1px solid gray;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+
+/*TERMINA ESTILOS PORTAFOLIO DE REVISTAS*/
+
+
+
+
+/*empieza estilos para el fancybox de revistas */
+
+.fancybox-slide--iframe .fancybox-content {
+    width  : 95%;
+    height : 95%;
+    max-width  : 95%;
+    max-height : 95%;
+    margin: 0;
+}
+
+
+.contentRevista:hover{
+
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+
+
+/*termina estilos para el fancybox de revistas */
 
 

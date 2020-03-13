@@ -21790,7 +21790,7 @@ return jQuery;
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Siguiente",
 	
 	
 				/**
@@ -21813,7 +21813,7 @@ return jQuery;
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Anterior"
 			},
 	
 			/**
@@ -21868,7 +21868,7 @@ return jQuery;
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Mostrar _START_ a _END_ de _TOTAL_ Registros",
 	
 	
 			/**
@@ -22029,7 +22029,7 @@ return jQuery;
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Mostrar _MENU_ Registros",
 	
 	
 			/**
@@ -22109,7 +22109,7 @@ return jQuery;
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Buscar:",
 	
 	
 			/**
@@ -22167,7 +22167,7 @@ return jQuery;
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "No se encontraron Registros"
 		},
 	
 	
