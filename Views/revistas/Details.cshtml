@@ -5,63 +5,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="contenedor_forms">
+    <div class="container">
+       
+        <div class="row">
+            <h2>Detalles</h2>
+            <hr />
+            <div class="col-md-6">
+                
+                
+                <dl class="dl-horizontal">
+                    <dt style="padding-bottom:30px;">
+                        @Html.DisplayNameFor(model => model.categoriaRevista.categoria)
+                    </dt>
 
-<div>
-    <h4>revista</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.categoriaRevista.categoria)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.categoriaRevista.categoria)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.categoriaRevista.categoria)
-        </dd>
+                    <dt style="padding-bottom:30px;">
+                        @Html.DisplayNameFor(model => model.nombreRevista)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreRevista)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.nombreRevista)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombreRevista)
-        </dd>
+                    <dt style="padding-bottom:30px;">
+                        @Html.DisplayNameFor(model => model.descripcionRevista)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcionRevista)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.descripcionRevista)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcionRevista)
-        </dd>
+                </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ubicacionPortadaRevista)
-        </dt>
+            </div>
+            <div class="col-md-4">
 
-        <dd>
-            @Html.DisplayFor(model => model.ubicacionPortadaRevista)
-        </dd>
+                <img src="@Url.Content(Model.ubicacionPortadaRevista)" style="width:100%; height:auto;" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ubicacionRevista)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.ubicacionRevista)
-        </dd>
+        </div>
+    </div>
+    
+    
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaPublicacion)
-        </dt>
+    <p>
+        @*@Html.ActionLink("Editar", "Edit", new { id = Model.revistaId }) |*@
+        @Html.ActionLink("Regresar a la Lista", "Lista")
+    </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.fechaPublicacion)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.revistaId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
