@@ -62,41 +62,69 @@
 
 
                                 <hr class="post-divider">
-                
-
+                            
+                                
                                 <div class="entry-comments">
                                     <h3><span class="text-theme"> @Model.comentariosBlog.Count</span> Comentarios:</h3>
 
                                     <ul class="comments-feed">
-                                        @foreach (var item in Model.comentariosBlog.OrderByDescending( c => c.fecha_Creado))
+                                        @foreach (var item in Model.comentariosBlog.OrderByDescending(c => c.fecha_Creado))
                                         {
-                                            
-                                        <li class="comment">
+                                            using (Html.BeginForm("DeleteCom", "comunidadDIN", FormMethod.Post))
+                                            {
 
+                                        <li class="comment">
+                                            
                                             <div class="comment-avatar">
                                                 <img src="@Url.Content(item.usuarios.imagenPerfil)" alt="" class="thumb img-circle">
                                             </div>
 
                                             <div class="comment-body">
                                                 <div class="comment-header">
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                                    <h3 class="comment-author">@item.usuarios.nickName</h3>                                                    
+
+    @*<a href="@Url.Action("DeleteConfirmed","comunidad", new { id = item.comentarioId })">*@
+
+                                                
+                                                    @Html.AntiForgeryToken()
+                                               
+                                                <input type="hidden" name="id" value="@item.comentarioId" />
+                                                    <input type="hidden" name="postId" value="@item.postId" />
+
+                                                  @if (Session["usuario"] != null)
+                                                  {
+
+
+                                                      var usr = (DINTRANET.Models.usuarios)Session["usuario"];
+                                                      if (usr.rolId == 1)
+                                                      {
+                                                        <button style="background:none; border:none;" >
+
+                                                            <i class="fa fa-times borrarComentario" aria-hidden="true">
+                                                            </i>
+                                                        </button>
+                                                      }
+                                                  }
+
+                                            <h3 class="comment-author">@item.usuarios.nickName</h3>
                                                     <span class="comment-meta">@item.fecha_Creado</span>
-                                                    
+
                                                 </div>
                                                 <p class="comment-content">
-                                                    @item.comentario
+                                                    @item.comentario 
+                                                    
                                                 </p>
                                             </div>
 
                                         </li>
-
-                                        }
+                                                }
+                                            }
 
 
 
                                     </ul>
                                 </div>
+                            
+
 
 
                                @if (Session["usuario"] != null)
@@ -175,6 +203,8 @@
 
         </div>
     </div><!-- #content end -->
+
+
 
 
 
