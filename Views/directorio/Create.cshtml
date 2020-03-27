@@ -9,7 +9,7 @@
 <div class="contenedor_forms">
     <h2>Crear Contacto </h2>
 
-    @using (Html.BeginForm( "create","directorio", FormMethod.Post , new {id = "form" }))
+    @using (Html.BeginForm("create", "directorio", FormMethod.Post, new { id = "form" }))
     {
         @Html.AntiForgeryToken()
 
@@ -70,14 +70,15 @@
                 </div>
             </div>
 
-
-            @*<div class="form-group">
+            <div id="divDireccion">
+                <div class="form-group">
                     @Html.LabelFor(model => model.direccion, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
                     </div>
-                </div>*@
+                </div>
+            </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.horario_apertura, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -123,7 +124,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.cel_gerente, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                     @Html.EditorFor(model => model.cel_gerente, new { htmlAttributes = new { @class = "form-control"} })
+                     @Html.EditorFor(model => model.cel_gerente, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.cel_gerente, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -201,6 +202,14 @@
             </div>
 
             <div class="form-group">
+            @Html.LabelFor(model => model.ubicacion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                @Html.TextAreaFor(model => model.ubicacion, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.ubicacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Crear" class="btn btn-default" id="crearDir" />
                 </div>
@@ -219,6 +228,8 @@
                 $(document).ready(function () {
                     $("#suc").hide();
                     $("#deps").hide();
+                    
+                    $("#divDireccion").hide();
                     $("#deps").attr("required", false);
                     $("#suc").attr("required", false);
                     
@@ -240,6 +251,7 @@
                             $("#telefono").text("Telefono Sucursal");
                             $("#ext").text("Ext Sucursal");
                             $("#crearDir").attr("disabled", false);
+                            $("#divDireccion").show();
                         }
 
                         if (valor == "Staff") {
@@ -252,6 +264,7 @@
                             $("#telefono").text("Telefono Departamento");
                             $("#ext").text("Ext Departamento");
                             $("#crearDir").attr("disabled", false);
+                            $("#divDireccion").hide();
                            
                         }
 
@@ -263,6 +276,7 @@
                             $("#crearDir").attr("disabled", true);
                             $("#deps").attr("required", false);
                             $("#suc").attr("required", false);
+                            $("#divDireccion").hide();
                         }
 
                        

@@ -38,6 +38,15 @@ section{
     margin: 0px;
 	padding:0;
 	position:relative;
+    /*width:95%;*/
+    /*border: 1px black solid;*/
+    /*box-shadow: 2px 5px #888888;*/
+    /*box-shadow: 0 8px 6px -6px black;*/
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    /*margin-left: 15%;*/
+    /*align-items:center;*/
+    margin-bottom:10px;
+    border-radius: 5px;
 }
 .gallery_product .img-info{
 	position: absolute;
@@ -58,6 +67,21 @@ section{
 	display:block;
    -webkit-transition: 2s;
     transition: 2s;
+    
+}
+
+.imgConvenios{
+
+    width:95%;
+    height:220px;   
+
+}
+
+
+.imgBiblioteca{
+    width:95%;
+    height:421px;
+
 }
 
 /*	end gallery */

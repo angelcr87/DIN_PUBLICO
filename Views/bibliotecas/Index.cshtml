@@ -41,7 +41,7 @@
                      @if (item.tipoId == 1)
                      {
                         <a class="fancybox" rel="ligthbox" href="@Url.Content(item.ubicacion)">
-                            <img class="img-responsive" alt="" src="@Url.Content(item.imagenPortada)" />
+                            <img class="img-responsive imgBiblioteca" alt="" src="@Url.Content(item.imagenPortada)" />
                             <div class='img-info'>
 
                                 <p>@item.titulo</p>
@@ -54,7 +54,7 @@
                     {
                      
                             <a class="fancybox" rel="ligthbox" href="@Url.Content(item.ubicacion)#toolbar=0&navpanes=0&scrollbar=0">
-                                <img class="img-responsive" alt="" src="@Url.Content(item.imagenPortada)" />
+                                <img class="img-responsive imgBiblioteca" alt="" src="@Url.Content(item.imagenPortada)" />
                                 <div class='img-info'>
 
                                     <p>@item.titulo</p>
@@ -84,7 +84,10 @@
     </div>
 </section>
 
-
+<script language="JavaScript">
+        document.oncontextmenu = function(){return false}
+        if (history.forward(1)){location.replace(history.forward(1))}
+</script>
 
 
 

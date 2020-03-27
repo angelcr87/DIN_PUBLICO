@@ -12,6 +12,11 @@ body {
 
 }
 
+dd {
+    padding:3px;
+        
+}
+
 a {
   text-decoration: none !important;
   /* color: #19b698; */
@@ -4539,3 +4544,50 @@ h1 {
 /*termina estilos para el fancybox de revistas */
 
 
+
+/*inicia estlos directorio*/
+
+.directorioContenedor {
+    /*background-color:dimgrey;*/
+    padding: 30px;
+    background-image:url("../assets/fondoMonedas.jpg");
+   color:black;
+}
+
+.directorioSeccion{
+    /*background-color:lavenderblush;*/
+    background-color:#FAFAFA;
+    padding: 7px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    
+    border: solid 2px black;
+}
+
+.directorioSuc {
+
+    color:black;
+    font-weight:700;
+}
+
+.mapDirectorio{
+
+    box-shadow: 2px 5px #888888 !important;
+    border-radius: 7px !important;
+    width:100% !important; 
+    height:auto !important;
+    
+}
+
+/*termina estilos directorio*/
+
+
+
+
+
+
+
+/*.divConvenio{
+
+    margin: 300px;
+}*/
