@@ -493,7 +493,7 @@ blockquote p {
 #header.transparent-header.light #main-navbar ul li a {
   color: #eee;
   text-shadow: 1px 2px 6px #FF0000;
-  font-size:large;
+  font-size:12px;
 }
 
 
@@ -3839,7 +3839,7 @@ a.desaturate:hover > img {
     /*color: #f51515;*/
     color:white;
     text-shadow: 1px 2px 6px #FF0000;
-    font-size:16px; /*TAMAÑO DEL MENU ROJO*/
+    font-size:12px; /*TAMAÑO DEL MENU ROJO*/
   }
 }
 
@@ -3895,6 +3895,14 @@ a.desaturate:hover > img {
     border-top: 1px dotted #eee;
 
   }
+
+  #liBuzonInterno{
+      float: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+    border-top: 1px dotted #eee;
+  }
+
   #main-navbar ul li a {
     height: 45px !important;
     line-height: 45px !important;

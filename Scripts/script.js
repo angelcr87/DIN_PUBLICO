@@ -49,7 +49,8 @@ $(document).ready(function () {
         }
     });
     
-    
+   
+    $('#listaSitios').DataTable();
     $('#listaRevistas').DataTable();
     $('#categoriaRevistas').DataTable();
     $('#listaCatBiblioteca').DataTable();

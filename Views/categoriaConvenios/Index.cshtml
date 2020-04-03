@@ -13,49 +13,51 @@
         <button class="btn btn-default" onclick="location.href='@Url.Action("Create","categoriaConvenios")'">Crear Nuevo</button>
         <button class="btn btn-default" onclick="location.href='@Url.Action("Lista","convenios")'">Regresar a Convenios</button>
     </p>
-    <table id="listaCategoriaConvenios" class="display" style="width:100%">
-        <thead class="tableHead">
-            <tr>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.usuarios.nickName)
-                    </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.categoria)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive">
+        <table id="listaCategoriaConvenios" class="display" style="width:100%">
+            <thead class="tableHead">
                 <tr>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.usuarios.nickName)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.categoria)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.categoriaId }) |
-                        @Html.ActionLink("Detalles", "Details", new { id = item.categoriaId }) |
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.categoriaId })
-                    </td>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.usuarios.nickName)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.categoria)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-        <tfoot class="tableFoot">
-            <tr>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.usuarios.nickName)
-                    </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.categoria)
-                </th>
-                <th></th>
-            </tr>
-        </tfoot>
+            </thead>
 
-    </table>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.usuarios.nickName)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.categoria)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.categoriaId }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.categoriaId }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.categoriaId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot class="tableFoot">
+                <tr>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.usuarios.nickName)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.categoria)
+                    </th>
+                    <th></th>
+                </tr>
+            </tfoot>
 
-</div>
+        </table>
+    </div>
+
+    </div>

@@ -11,90 +11,91 @@
         @*@Html.ActionLink("Create New", "Create")*@
         <button class="btn btn-default" onclick="location.href='@Url.Action("Create","eventos")'">Crear Nuevo</button>
     </p>
-    <table id="listaEventos" class="display" style="width:100%">
-        <thead class="tableHead">
-            <tr>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.titulo)
-                </th>
-                @*<th>
-                    @Html.DisplayNameFor(model => model.descripcion)
-                </th>*@
-
-                <th>
-                    @Html.DisplayNameFor(model => model.nombre_Adjunto)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.fecha_Inicio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.fecha_final)
-                </th>
-
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive">
+        <table id="listaEventos" class="display" style="width:100%">
+            <thead class="tableHead">
                 <tr>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.titulo)
-                    </td>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.descripcion)
-                    </td>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.titulo)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.descripcion)
+                        </th>*@
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nombre_Adjunto)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre_Adjunto)
+                    </th>
 
-                    <td>
-                        
-                        @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)
-                    </td>
-                    <td>
-                        
-                        @String.Format("{0:dd/MM/yyyy}", item.fecha_final)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fecha_Inicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fecha_final)
+                    </th>
 
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.eventoId }) |
-                        @Html.ActionLink("Detalles", "Details", new { id = item.eventoId }) |
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.eventoId })
-                    </td>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-        <tfoot class="tableFoot">
-            <tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.titulo)
-                </th>
-                @*<th>
-                    @Html.DisplayNameFor(model => model.descripcion)
-                </th>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.titulo)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.descripcion)
+                            </td>*@
 
-                <th>
-                    @Html.DisplayNameFor(model => model.nombre_Adjunto)
-                </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombre_Adjunto)
+                        </td>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.fecha_Inicio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.fecha_final)
-                </th>
+                        <td>
 
-                <th></th>
-            </tr>
+                            @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)
+                        </td>
+                        <td>
 
-        </tfoot>
+                            @String.Format("{0:dd/MM/yyyy}", item.fecha_final)
+                        </td>
 
-</table>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.eventoId }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.eventoId }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.eventoId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot class="tableFoot">
+                <tr>
 
-</div>
+                    <th>
+                        @Html.DisplayNameFor(model => model.titulo)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.descripcion)
+                        </th>*@
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre_Adjunto)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.fecha_Inicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fecha_final)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+            </tfoot>
+
+        </table>
+    </div>
+    </div>

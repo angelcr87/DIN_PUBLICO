@@ -80,6 +80,16 @@
                 </div>
             </div>
 
+            <div id="divEmailSucursal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email_Sucursal, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email_Sucursal, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email_Sucursal, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.horario_apertura, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -129,6 +139,14 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.email_gerente, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.email_gerente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.email_gerente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
            
 
             <div class="form-group">
@@ -150,12 +168,22 @@
             </div>
 
             <div class="form-group">
-            @Html.LabelFor(model => model.cel_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cel_encargado1, new { htmlAttributes = new { @class = "form-control", } })
-                @Html.ValidationMessageFor(model => model.cel_encargado1, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.email_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.email_encargado1, new { htmlAttributes = new { @class = "form-control", } })
+                    @Html.ValidationMessageFor(model => model.email_encargado1, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+
+            <div id="divCelEncargado1">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cel_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cel_encargado1, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.ValidationMessageFor(model => model.cel_encargado1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.encargado2, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -230,6 +258,8 @@
                     $("#deps").hide();
                     
                     $("#divDireccion").hide();
+                    $("#divEmailSucursal").hide();
+                    $("#divCelEncargado1").hide();
                     $("#deps").attr("required", false);
                     $("#suc").attr("required", false);
                     
@@ -252,6 +282,8 @@
                             $("#ext").text("Ext Sucursal");
                             $("#crearDir").attr("disabled", false);
                             $("#divDireccion").show();
+                            $("#divEmailSucursal").show();
+                            $("#divCelEncargado1").hide();
                         }
 
                         if (valor == "Staff") {
@@ -265,6 +297,8 @@
                             $("#ext").text("Ext Departamento");
                             $("#crearDir").attr("disabled", false);
                             $("#divDireccion").hide();
+                            $("#divEmailSucursal").hide();
+                            $("#divCelEncargado1").show();
                            
                         }
 
@@ -277,6 +311,8 @@
                             $("#deps").attr("required", false);
                             $("#suc").attr("required", false);
                             $("#divDireccion").hide();
+                            $("#divEmailSucursal").hide();
+                            $("#divCelEncargado1").hide();
                         }
 
                        
