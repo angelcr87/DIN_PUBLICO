@@ -1,0 +1,428 @@
+﻿
+
+@{
+    List<DINTRANET.Models.eventos> evt = ViewBag.eventos;
+    List<DINTRANET.Models.Slide> sld = ViewBag.slides;
+    List<DINTRANET.Models.postBlog> post = ViewBag.post;
+    //List<DINTRANET.Models.directorio> dir = ViewBag.dir;
+    //List<DINTRANET.Models.directorio> dirStaff = ViewBag.dirStaff;
+
+    int x = 1;
+    int y = 1;
+    int z = 1;
+
+    String img="";
+    ViewBag.Title = "";
+}
+
+
+<!-- ============================================
+       =================== Content =====================
+       ============================================= -->
+<!-- abre slider-->
+
+@*<div class="contenido">
+
+    <div class="slider">
+        <div><img src="~/assets/images/slider/din1.jpg" title="Universo 1"></div>
+        <div><img src="~/assets/images/slider/din2.jpg" title="Universo 2"></div>
+        <div><img src="~/assets/images/slider/din3.jpg" title="Universo 3"></div>
+    </div>
+</div>*@
+
+@*<div class="contenido" style="margin-top:10px;">*@
+<div class="contenido" style="width:90%; height:400%">
+    @*<div class="w3-content w3-display-container">*@
+
+    @foreach (var item in sld.OrderBy(s => s.slideId))
+    {
+        <div class="w3-display-container mySlides" style="height:450px; ">
+            @*<img src="@Url.Content(item.imagen)" style="width:100%; max-height:450px;">*@
+            <center>
+                <img src="@Url.Content(item.imagen)"  style="max-width:100%; max-height:450px">
+            </center>
+            @*<div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+                    @item.descripcion
+                </div>*@
+        </div>
+
+    }
+
+    @*<div class="w3-display-container mySlides">
+            <img src="~/assets/images/slider/din1.jpg" style="width:100%; max-height:450px;">
+            <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+                French Alps
+            </div>
+        </div>
+
+        <div class="w3-display-container mySlides">
+            <img src="~/assets/images/slider/din2.jpg" style="width:100%; max-height:450px;">
+            <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+                Northern Lights
+            </div>
+        </div>
+
+        <div class="w3-display-container mySlides">
+            <img src="~/assets/images/slider/din3.jpg" style="width:100%; max-height:450px;">
+            <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+                Beautiful Mountains
+            </div>
+        </div>*@
+
+    @*<div class="w3-display-container mySlides">
+            <img src="img_forest.jpg" style="width:100%">
+            <div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
+                The Rain Forest
+            </div>
+        </div>*@
+
+    @*<div class="w3-display-container mySlides">
+            <img src="img_mountains.jpg" style="width:100%">
+            <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
+                Mountains!
+            </div>
+        </div>*@
+
+    <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+
+    @*</div>*@
+</div>
+
+
+<script>
+var slideIndex = 1;
+var myIndex = 0;
+carousel();
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex - 1].style.display = "block";
+
+
+}
+
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex - 1].style.display = "block";
+ 
+  setTimeout(carousel, 5000); // Change image every 2 seconds
+}
+</script>
+
+<!-- Cierra slider -->
+
+
+
+
+
+  
+
+<br />
+
+   
+
+
+
+
+    <!-- ============ EVENTOS ============ -->
+    <div id="eventos" class="Servicios_slider">
+        <br><br><br>
+        <div class="center-block less-width text-center clearfix">
+            <h1>Programacion <span class="text-greensea"> de Eventos</span></h1>
+
+        </div>
+        <div class="container clearfix">
+
+
+            <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <ul class="tabs-menu">
+
+                        @*<li class="active"><a href="#tab_0" data-toggle="tab"><span> Selecciona... </span></a></li>*@
+
+                        @*@foreach (var año in evt.GroupBy(item => item.fecha_final.Year))
+                        {*@
+                        @*@Html.Encode(grupo.Key)*@
+
+                        @foreach (var mes in evt.GroupBy( i => new { i.fecha_Inicio.Year , i.fecha_Inicio.Month }))
+                        {
+                            @*if (x == 1)
+                            {
+
+
+
+                        <li><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(año.Key) + "/" + Html.Encode(mes.Key) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(año.Key) + "/" + Html.Encode(mes.Key) + "/01")) </span></a></li>
+                            }
+                            else
+                            {
+
+
+
+                        
+                        <li class=""><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(año.Key) + "/" + Html.Encode(mes.Key) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(año.Key) + "/" + Html.Encode(mes.Key) + "/01")) </span></a></li>
+                                }*@
+
+                        if (int.Parse(Html.Encode(mes.Key.Month)) == DateTime.Today.Month && int.Parse(Html.Encode(mes.Key.Year)) == DateTime.Today.Year)
+                        {
+                            <li class="active"><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01")) </span></a></li>
+
+                         }
+                        else
+                         {
+                           <li class=""><a href="#tab_@x" data-toggle="tab"><span>@String.Format("{0:MMM}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01"))</span>   <span>@String.Format("{0:yyyy}", DateTime.Parse(Html.Encode(mes.Key.Year) + "/" + Html.Encode(mes.Key.Month) + "/01")) </span></a></li>
+                         }
+                                                                
+                                x++;
+                            }
+                        @*}*@
+                    </ul>
+                </div>
+
+
+                <div class="col-md-9 col-sm-9">
+                    <div class="tab-content">
+
+
+                        @foreach (var grupo in evt.GroupBy(item => new { item.fecha_Inicio.Year, item.fecha_Inicio.Month }))
+                        {
+                            z = 1;
+                            //foreach (var grupo2 in grupo.GroupBy(j => j.fecha_Inicio.Year))
+                            //{
+
+                            if (int.Parse(Html.Encode(grupo.Key.Month)) == DateTime.Today.Month && int.Parse(Html.Encode(grupo.Key.Year)) == DateTime.Today.Year)
+                            {
+                                <div class="tab-pane active" id="tab_@y">
+                                    <div class="panel-group" id="@("accordion_" + y)">
+
+
+                                        @*<div class="panel panel-faq active">*@
+                                        <div class="panel panel-faq">
+
+                                            @foreach (var item in grupo.OrderBy(i => i.fecha_Inicio.Date))
+                                            {
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a href="@("#accordion" + y + "_" + z)" data-parent="@("#accordion_" + y)" data-toggle="collapse">
+                                                            ( @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)  ) @item.titulo
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                        <!-- <div class="panel-collapse collapse in" id="accordion1_1"> -->
+                                                <div class="panel-collapse collapse" id="@("accordion" + y + "_" + z)">
+                                                    <div class="panel-body">
+                                                        @item.descripcion
+                                                        <br><br>
+                                                        @* @img = @String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto)*@
+
+                                                        <img src="@Url.Content(String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto))" alt="">
+                                                    </div>
+                                                </div>
+                                                z++;
+
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+
+                            else
+                            {
+
+                                <div class="tab-pane" id="tab_@y">
+                                    <div class="panel-group" id="@("accordion_" + y)">
+
+
+                                        @*<div class="panel panel-faq active">*@
+                                        <div class="panel panel-faq">
+
+                                            @foreach (var item in grupo.OrderBy(i => i.fecha_Inicio.Date))
+                                            {
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a href="@("#accordion" + y + "_" + z)" data-parent="@("#accordion_" + y)" data-toggle="collapse">
+                                                           ( @String.Format("{0:dd/MM/yyyy}", item.fecha_Inicio)  ) @item.titulo
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                        <!-- <div class="panel-collapse collapse in" id="accordion1_1"> -->
+                                                <div class="panel-collapse collapse" id="@("accordion" + y + "_" + z)">
+                                                    <div class="panel-body">
+                                                        @item.descripcion
+                                                        <br><br>
+                                                        @* @img = @String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto)*@
+
+                                                        <img src="@Url.Content(String.Format("{0}{1}", item.ruta_Adjunto, @item.nombre_Adjunto))" alt="">
+                                                    </div>
+                                                </div>
+                                                z++;
+
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            }
+
+
+
+                        @*}*@
+                            y++;
+                        }
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div><!-- /EVENTOS -->
+        <br><br><br>
+    </div>
+
+    <!-- ============ END EVENTOS ============ -->
+    <!-- ============ posts & feedback section ============ -->
+    <div class="section m-0 Servicios_slider">
+        <div class="container clearfix">
+
+            <div class="row">
+
+
+                <!-- ============ posts section ============ -->
+                <div class="col-md-12">
+
+                    <div class="header-line">
+                        <h4>Ultimos Publicaciones </h4>
+                    </div>
+
+
+
+                    <div class="row">
+                        @foreach (var p in post)
+                        {
+                        <div class="col-sm-4">
+
+                            <article class="post-entry">
+
+                                <div class="entry-image">
+                                    <a href="~/ComunidadDIN/comentarios/@p.postId"><img src="@Url.Content(p.imagen)" class="img-responsive" alt="Image"></a>
+                                </div>
+
+                                <div class="entry-title">
+                                    <h3><a href="~/ComunidadDIN/comentarios/@p.postId">@p.titulo</a></h3>
+                                </div>
+
+                                <ul class="entry-meta clearfix">
+                                    <li><i class="fa fa-calendar-o"></i> 25/Sept/2015</li>
+                                    <li><a href="~/ComunidadDIN/comentarios/@p.postId"><i class="fa fa-comments"></i> @p.comentariosBlog.Count</a></li>
+                                </ul>
+
+                                <div class="entry-content">
+                                    <p>@p.contenido</p>
+                                </div>
+
+
+
+                            </article>
+
+                        </div>
+
+                        }
+
+                    </div>
+
+                </div><!-- /posts section -->
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--  ============  END posts & feedback section ============ - -->
+
+
+ <!-- ============ clients carousel section ============ -->
+<div id="servicios" class="Servicios_slider">
+    <div class="center-block less-width text-center clearfix">
+        <h1>Seccion <span class="text-greensea">Mis Servicios</span></h1>
+
+    </div>
+
+
+    <div id="clients-carousel" class="section owl-carousel carousel-full m-0 pb-0 owl-theme">
+
+        <div class="carousel-item"><a href="@Url.Content("~/convenios/index")" class="desaturate"><img src="~/assets/images/icons/convenios.png" class="img-responsive" alt="Clients"><span style="text-align:center;">Convenios</span></a></div>
+        <div class="carousel-item"><a href="@Url.Content("~/directorio/lista")" class="desaturate"><img src="@Url.Content("~/assets/images/icons/directorio.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">Directorio Sucursales</span></a></div>
+        <div class="carousel-item"><a href="@Url.Content("~/bibliotecas/index")" class="desaturate"><img src="@Url.Content("~/assets/images/icons/biblioteca.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">Biblioteca</span></a></div>
+        <div class="carousel-item"><a href="http://10.10.0.2/ReportDIN/Login.aspx?ReturnUrl=%2freportdin" class="desaturate" target="_blank"><img src="@Url.Content("~/assets/images/icons/moneda.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">ReportDIN</span></a></div>
+        <div class="carousel-item"><a href="http://10.10.0.2/sicaviweb/" class="desaturate" target="_blank"><img src="@Url.Content("~/assets/images/icons/moneda.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">SicaviWeb</span></a></div>
+        <div class="carousel-item"><a href="http://10.10.0.2/financiadin/" class="desaturate" target="_blank"><img src="@Url.Content("~/assets/images/icons/moneda.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">FinanciaDIN</span></a></div>
+        <div class="carousel-item"><a href="http://10.10.0.2/buzonint/" class="desaturate" target="_blank"><img src="@Url.Content("~/assets/images/icons/moneda.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">Buzon Interno</span></a></div>
+        <div class="carousel-item"><a href="@Url.Content("~/Home/mantenimiento")" class="desaturate"><img src="@Url.Content("~/assets/images/icons/moneda.png")" class="img-responsive" alt="Clients"><span style="text-align:center;">Help Desk</span></a></div>
+        @*<div class="carousel-item"><a href="#" class="desaturate"><img src="~/assets/images/icons/descuentos_emp.png" class="img-responsive" alt="Clients">Descuentos de Empleado</a></div>*@
+        @*<div class="carousel-item"><a href="#" class="desaturate"><img src="~/assets/images/icons/formato.png" class="img-responsive" alt="Clients">Formato de Vacaciones</a></div>*@
+        @*<div class="carousel-item"><a href="#" class="desaturate"><img src="~/assets/images/icons/recibo_nom.png" class="img-responsive" alt="Clients">Recibo de Nomina</a></div>*@
+        @*<div class="carousel-item"><a href="#" class="desaturate"><img src="~/assets/images/icons/revista.png" class="img-responsive" alt="Clients">Revista DIN</a></div>*@
+        @*<div class="carousel-item"><a href="#" class="desaturate"><img src="~/assets/images/icons/vacantes_internas.png" class="img-responsive" alt="Clients">Vacantes Internas</a></div>*@
+
+    </div>
+</div>
+<!-- clients carousel section -->
+<!-- script clients carousel section -->
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      var cCarousel = $("#clients-carousel");
+
+      cCarousel.owlCarousel({
+         
+                 
+        items: 4,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoPlay: 3000,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,        
+        nav: true
+        
+        
+        // pagination: true,
+        // responsive:{
+        //     0:{ items:1 },
+        //     600:{ items:2 },
+        //     1000:{ items:3 },
+        //     1200:{ items:4 },
+        //     1400:{ items:5 }
+        // }
+      });
+
+
+    }); //ready
+</script>
+<!-- end script clients carousel section -->
+

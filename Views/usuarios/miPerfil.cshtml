@@ -1,0 +1,365 @@
+﻿@model DINTRANET.Models.usuarios
+
+@{
+    ViewBag.Title = "miPerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //List<DINTRANET.Models.equipoDIN> usrDatos =  ViewBag.usrDatos;
+    DINTRANET.Models.equipoDIN usrDatos = ViewBag.usrDatos;
+
+    var rootHost = String.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
+
+    
+
+}
+
+@*<h2>Mi Perfil</h2>*@
+
+<hr>
+
+
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10"><h1>@Model.nickName.ToUpper()</h1></div>
+       
+        @*<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>*@
+        <div class="col-sm-2">
+        @*<img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100">*@
+
+            <svg version="1.1" id="logo-principal" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="61px" viewBox="0 0 200 61" style="enable-background:new 0 0 200 61;" xml:space="preserve">
+                <path style="fill:#EA0029;" d="M70.6284409,14.0695343c1.2321625,3.7791443,1.5028381,7.9621735,0.7384491,12.3019447
+	                c-2.6307373,14.9121857-16.9105682,27.0453377-31.8372154,27.0453377c-1.202034,0-2.3763428-0.0850105-3.5271606-0.2369156
+	                l-2.0815544,4.8955803c1.6553535,0.3086433,3.3710098,0.4720078,5.1342964,0.4720078
+	                c15.719368,0,30.7569466-12.7667236,33.5227165-28.4559574C73.5937424,24.3321095,72.8926544,18.8198318,70.6284409,14.0695343"></path>
+                <path style="fill:#AA182C;" d="M58.5247765,2.4562039l-3.8991127,9.2407761
+	                c2.7820511,0.3990831,4.8365059,1.1960182,4.8365059,1.1960182l-4.592968,4.2433167
+	                c-1.1574211-0.3146801-2.5861244-0.602829-3.950325-0.602829c-2.9279594,0-4.7756119,1.3473129-5.1511841,3.491581
+	                c-0.3960495,2.2437401,0.6631165,3.2914429,1.8277855,4.9859982l1.9290428,2.7410641
+	                c1.5269775,2.1460705,2.785675,4.5368919,2.3015976,7.2833824c-1.0495224,5.9336586-5.7407303,8.4769936-12.0089569,9.1762772
+	                l-3.229351,7.5914192c0.8698769,0.0922432,1.7566452,0.1392479,2.667511,0.1392479
+	                c14.2870598,0,27.9103966-11.5809364,30.4290276-25.8673878C71.5392456,15.5466566,66.8407974,6.4945602,58.5247765,2.4562039"></path>
+                <path style="fill:#EA0029;" d="M51.9819603,4.1249123c-0.0132675-0.0011959-0.0271378-0.0011959-0.0404015-0.0048199
+	                l0.0030174,0.0048199h-24.579752L38.703434,5.6241665c-6.9253063,2.5168047-13.0313625,7.5654993-16.8834496,13.9355869H10.2613478
+	                l10.3777037,2.1352348c-1.2725677,2.5288563-2.1967182,5.2313404-2.6910229,8.0375099
+	                c-1.4148502,8.0290833,0.9850063,15.1949081,5.8896351,19.9385834H1.75l28.1635857,4.0516205l3.9629822-9.4125824
+	                c-0.9235229-0.0699272-1.7940102-0.1880913-2.5921574-0.3231239l-9.7380981-1.2116737h5.5544624l4.7961044-4.427784
+	                c1.5667515,0.3846054,3.5169163,0.7764435,4.9414043,0.7764435c3.0738258,0,4.8943634-1.1960182,5.3615532-3.8394127
+	                c0.3080559-1.7452049-0.7107277-3.0424957-1.8820381-4.6870117l-2.4571266-3.4897804
+	                c-1.1712914-1.6469269-2.1966972-4.1414337-1.7940102-6.4345875c0.6835938-3.8689575,3.4355087-6.5515547,7.5546455-7.9844704
+	                l-7.7475548-1.0917263h12.9873581l1.8313904-4.3885961L51.9819603,4.1249123z"></path>
+              </svg>
+        
+        
+        </div>
+
+       
+    <div class="row">
+        
+
+        <div class="col-sm-3">
+            <!--left col-->
+
+            <div class="text-center">
+
+
+                @if (Model.imagenPerfil != "")
+                {
+                    <img src="@Url.Content(Model.imagenPerfil)" class="avatar img-circle img-thumbnail" alt="@Model.nickName">
+                    @*<img src="~/assets/images/fotoPerfil/jorch - copia.jpg" />*@
+                }
+                else
+                {
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                    }
+
+                @using (Html.BeginForm("GuardarImagen", "usuarios", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(model => model.usuarioId)
+                    @Html.HiddenFor(model => model.imagenPerfil)
+                    <h6>Selecciona una foto...</h6>
+                    <input id="btnCargaImagen" type="submit" value="Actualizar" class="btn btn-default"  />
+                    <input id="btnSelectImagen" type="file" name="file" class="text-center center-block file-upload" required>
+                    
+
+                }
+                
+            </div></hr><br>
+
+            @*<div class="panel panel-default">
+                <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+            </div>*@
+       
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Edad</strong></span> @usrDatos.edad </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Antiguedad en DIN</strong></span> @usrDatos.duracion</li>
+                @*<li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>*@
+            </ul>
+
+        
+
+            
+
+            @*<div class="panel panel-default">
+                <div class="panel-heading">Social Media</div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                </div>
+            </div>*@
+
+        </div><!--/col-3-->
+        <div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">MI PERFIL</a></li>
+                @*<li><a data-toggle="tab" href="#messages">Menu 1</a></li>
+                <li><a data-toggle="tab" href="#settings">Menu 2</a></li>*@
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <hr>
+                    
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>Nombres</h4></label>
+                                <input type="text" class="form-control" value="@usrDatos.Em_Nombre.ToUpper()" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name"><h4>Apellidos</h4></label>
+                                <input type="text" class="form-control" value="@usrDatos.Em_Apellido_Paterno.ToUpper() @usrDatos.Em_Apellido_Materno.ToUpper()" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Email</h4></label>
+                                <input type="text" class="form-control" value="@usrDatos.Em_Email.ToUpper()" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any." disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile"><h4>Departamento</h4></label>
+                                <input type="text" class="form-control" value="@usrDatos.De_Descripcion.ToUpper()" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Puesto</h4></label>
+                                <input type="email" class="form-control" value="@usrDatos.Pe_Descripcion.ToUpper()" name="email" id="email" placeholder="you@email.com" title="enter your email." disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Sucursal</h4></label>
+                                <input type="email" class="form-control" value="@usrDatos.Sucursal.ToUpper()" id="location" placeholder="somewhere" title="enter a location" disabled>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+
+                        <div class="col-xs-6">
+                            <label for="email"><h4>Direccion Sucursal</h4></label>
+                            <input type="email" class="form-control" value="@usrDatos.Sc_Direccion_1 @usrDatos.colonia" id="location" placeholder="somewhere" title="enter a location" disabled>
+                        </div>
+                    </div>
+
+
+
+
+                    @*<form class="form" action="##" method="post" id="changePass">*@
+                        @using (Html.BeginForm("changePass", "usuarios", FormMethod.Post, new { id = "changePass" }))
+                        {
+                            @Html.HiddenFor(model => model.usuarioId)
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="passwordOld"><h4>Contraseña Actual</h4></label>
+                                    <input type="password" class="form-control" name="passwordOld" id="passwordOld" placeholder="password" title="ingresa tu contraseña actual">
+                                </div>
+                            </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Contraseña Nueva</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="ingresa tu nueva contraseña">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2"><h4>Verificar Contraseña</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="confirma tu nueva contraseña.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" id="confirmarPass" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Guardar</button>
+                                @*<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>*@
+                            </div>
+                        </div>
+                        }
+                    @*</form>*@
+
+                    <hr>
+
+                </div><!--/tab-pane-->
+                @*<div class="tab-pane" id="messages">
+
+                    <h2></h2>
+
+                    <hr>
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>First name</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Phone</h4></label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Location</h4></label>
+                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>*@<!--/tab-pane-->
+                @*<div class="tab-pane" id="settings">
+
+
+                    <hr>
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>First name</h4></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Phone</h4></label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile"><h4>Mobile</h4></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Location</h4></label>
+                                <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="password2"><h4>Verify</h4></label>
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>*@
+
+            </div><!--/tab-pane-->
+        </div><!--/tab-content-->
+    </div><!--/col-9-->
+</div><!--/row-->
+</div>
