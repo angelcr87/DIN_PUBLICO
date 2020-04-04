@@ -83,7 +83,7 @@
         <dd>
             @Html.DisplayFor(model => model.cel_encargado1)
         </dd>
-        @if (Model.encargado2 != "")
+        @*@if (Model.encargado2 != "")
         {
 
 
@@ -103,7 +103,7 @@
                 @Html.DisplayFor(model => model.cel_encargado2)
             </dd>
 
-        }
+        }*@
 
 
 
@@ -124,6 +124,120 @@
         <dd>
             @Html.DisplayFor(model => model.ext_suc)
         </dd>
+
+
+        @if (Model.encargado2 != "")
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.encargado2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.encargado2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email_encargado2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email_encargado2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cel_encargado2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cel_encargado2)
+            </dd>
+
+        }
+
+
+@if (Model.encargado3 != "")
+{
+
+        <dt>
+            @Html.DisplayNameFor(model => model.encargado3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.encargado3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_encargado3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_encargado3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_encargado3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_encargado3)
+        </dd>
+
+}
+
+@if (Model.encargado4 != "")
+{
+        <dt>
+            @Html.DisplayNameFor(model => model.encargado4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.encargado4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_encargado4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_encargado4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_encargado4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_encargado4)
+        </dd>
+}
+
+@if (Model.encargado5 != "")
+{
+        <dt>
+            @Html.DisplayNameFor(model => model.encargado5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.encargado5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_encargado5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_encargado5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_encargado5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_encargado5)
+        </dd>
+}
+
         <dt>
             
             @Html.DisplayNameFor(model => model.ubicacion)

@@ -31,13 +31,13 @@
             </div>
 
 
-           
+
 
 
             <div class="form-group" id="suc">
                 @Html.LabelFor(model => model.sucursal, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <select class="js-example-basic-multiple" style="width:100%;" name="sucursal" id="selsucursal" >
+                    <select class="js-example-basic-multiple" style="width:100%;" name="sucursal" id="selsucursal">
                         <option value="">Seleccione...</option>
                         @foreach (var item in ViewBag.suc)
                         {
@@ -46,7 +46,7 @@
 
 
                     </select>
-                   
+
 
                     @Html.ValidationMessageFor(model => model.sucursal, "", new { @class = "text-danger", id = "validSuc" })
                 </div>
@@ -57,7 +57,7 @@
                 @*@Html.LabelFor(model => model.sucursal, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <label class="control-label col-md-2">Departamento</label>
                 <div class="col-md-10">
-                    <select class="js-example-basic-multiple" style="width:100%;" name="departamento" id="seldepartamento" >
+                    <select class="js-example-basic-multiple" style="width:100%;" name="departamento" id="seldepartamento">
                         <option value="">Seleccione...</option>
                         @foreach (var item in ViewBag.deps)
                         {
@@ -101,7 +101,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.horario_cierrre, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <input type="time" name="horario_cierrre" class="form-control" required/>
+                    <input type="time" name="horario_cierrre" class="form-control" required />
                     @Html.ValidationMessageFor(model => model.horario_cierrre, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -134,7 +134,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.cel_gerente, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                     @Html.EditorFor(model => model.cel_gerente, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.cel_gerente, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.cel_gerente, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -144,70 +144,6 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.email_gerente, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.email_gerente, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-           
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
-                    <select class="js-example-basic-multiple" style="width:100%;" name="encargado1" id="selencargado1">
-                        <option value="">Seleccione...</option>
-                        @foreach (var item in usr)
-                        {
-                            <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
-                        }
-
-
-                    </select>
-
-                    @Html.ValidationMessageFor(model => model.encargado1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.email_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.email_encargado1, new { htmlAttributes = new { @class = "form-control", } })
-                    @Html.ValidationMessageFor(model => model.email_encargado1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div id="divCelEncargado1">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.cel_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cel_encargado1, new { htmlAttributes = new { @class = "form-control", } })
-                        @Html.ValidationMessageFor(model => model.cel_encargado1, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.encargado2, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
-                    <select class="js-example-basic-multiple" style="width:100%;" name="encargado2">
-                        <option value="">Seleccione...</option>
-                        @foreach (var item in usr)
-                        {
-                            <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
-                        }
-
-
-                    </select>
-
-                    @Html.ValidationMessageFor(model => model.encargado2, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.cel_encargado2, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.cel_encargado2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.cel_encargado2, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -230,12 +166,208 @@
             </div>
 
             <div class="form-group">
-            @Html.LabelFor(model => model.ubicacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">                
-                @Html.TextAreaFor(model => model.ubicacion, new { @class = "form-control" } )
-                @Html.ValidationMessageFor(model => model.ubicacion, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.ubicacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.ubicacion, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ubicacion, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
+
+
+
+            <div id="divEncargado1">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
+                        <select class="js-example-basic-multiple" style="width:100%;" name="encargado1" id="selencargado1">
+                            <option value="">Seleccione...</option>
+                            @foreach (var item in usr)
+                            {
+                                <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
+                            }
+
+
+                        </select>
+
+                        @Html.ValidationMessageFor(model => model.encargado1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email_encargado1, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.ValidationMessageFor(model => model.email_encargado1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="divCelEncargado1">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.cel_encargado1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cel_encargado1, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.cel_encargado1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @*<input type="submit" value="Crear" class="btn btn-default" id="crearDir" />*@
+                    <button type="button" class="btn btn-default" id="btnAgregarAliado">Agregar Aliado</button>
+                </div>
+            </div>
+
+
+            <div id="divencargado2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.encargado2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
+                        <select class="js-example-basic-multiple" style="width:100%;" name="encargado2">
+                            <option value="">Seleccione...</option>
+                            @foreach (var item in usr)
+                            {
+                                <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
+                            }
+
+
+                        </select>
+
+                        @Html.ValidationMessageFor(model => model.encargado2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email_encargado2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email_encargado2, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.ValidationMessageFor(model => model.email_encargado2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cel_encargado2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cel_encargado2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cel_encargado2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="divencargado3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.encargado3, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
+                        <select class="js-example-basic-multiple" style="width:100%;" name="encargado3">
+                            <option value="">Seleccione...</option>
+                            @foreach (var item in usr)
+                            {
+                                <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
+                            }
+
+
+                        </select>
+
+                        @Html.ValidationMessageFor(model => model.encargado3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email_encargado3, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email_encargado3, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.ValidationMessageFor(model => model.email_encargado3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cel_encargado3, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cel_encargado3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cel_encargado3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="divencargado4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.encargado4, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
+                        <select class="js-example-basic-multiple" style="width:100%;" name="encargado4">
+                            <option value="">Seleccione...</option>
+                            @foreach (var item in usr)
+                            {
+                            <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
+                            }
+
+
+                        </select>
+
+                        @Html.ValidationMessageFor(model => model.encargado4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email_encargado4, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email_encargado4, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.ValidationMessageFor(model => model.email_encargado4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cel_encargado4, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cel_encargado4, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cel_encargado4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="divencargado5">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.encargado5, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*<select class="js-example-basic-multiple form-control" name="encargado[]" multiple="multiple">*@
+                        <select class="js-example-basic-multiple" style="width:100%;" name="encargado5">
+                            <option value="">Seleccione...</option>
+                            @foreach (var item in usr)
+                            {
+                                <option value="@item.Em_Codigo_Alterno">@item.Em_Nombre @item.Em_Apellido_Paterno @item.Em_Apellido_Materno </option>
+                            }
+
+
+                        </select>
+
+                        @Html.ValidationMessageFor(model => model.encargado5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email_encargado5, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.email_encargado5, new { htmlAttributes = new { @class = "form-control", } })
+                        @Html.ValidationMessageFor(model => model.email_encargado5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cel_encargado5, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cel_encargado5, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cel_encargado5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -253,78 +385,100 @@
 
 
 <script type="text/javascript">
-                $(document).ready(function () {
-                    $("#suc").hide();
-                    $("#deps").hide();
-                    
-                    $("#divDireccion").hide();
-                    $("#divEmailSucursal").hide();
-                    $("#divCelEncargado1").hide();
-                    $("#deps").attr("required", false);
-                    $("#suc").attr("required", false);
-                    
-                    
+    $(document).ready(function () {
+        $("#suc").hide();
+        $("#deps").hide();
+
+        $("#divDireccion").hide();
+        $("#divEmailSucursal").hide();
+        $("#divCelEncargado1").hide();
+        $("#deps").attr("required", false);
+        $("#suc").attr("required", false);
 
 
-                    $('#tipo').on('change', function () {
-                        var valor = $(this).val();
-                        
-                        var encargado = $("selencargado1").val();
+        //encargados o aliados
 
-                        if (valor == "Sucursal" ) {
-                            $("#seldepartamento").val("0");
-                            $("#suc").show();
-                            $("#suc").attr("required", true);
-                            $("#deps").hide();
-                            $("#deps").attr("required", false);
+        $("#divencargado1").show();
+        $("#divencargado2").hide();
+        $("#divencargado3").hide();
+        $("#divencargado4").hide();
+        $("#divencargado5").hide();
 
-                            $("#telefono").text("Telefono Sucursal");
-                            $("#ext").text("Ext Sucursal");
-                            $("#crearDir").attr("disabled", false);
-                            $("#divDireccion").show();
-                            $("#divEmailSucursal").show();
-                            $("#divCelEncargado1").hide();
-                        }
 
-                        if (valor == "Staff") {
-                           
-                            $("#selsucursal").val("0");
-                            $("#deps").show();
-                            $("#deps").attr("required", true);
-                            $("#suc").hide();
-                            $("#suc").attr("required", false);
-                            $("#telefono").text("Telefono Departamento");
-                            $("#ext").text("Ext Departamento");
-                            $("#crearDir").attr("disabled", false);
-                            $("#divDireccion").hide();
-                            $("#divEmailSucursal").hide();
-                            $("#divCelEncargado1").show();
-                           
-                        }
 
-                        if (valor == 0) {
-                            $("#suc").hide();
-                            $("#deps").hide();
-                            $("#telefono").text("");
-                            $("#ext").text("");
-                            $("#crearDir").attr("disabled", true);
-                            $("#deps").attr("required", false);
-                            $("#suc").attr("required", false);
-                            $("#divDireccion").hide();
-                            $("#divEmailSucursal").hide();
-                            $("#divCelEncargado1").hide();
-                        }
+        $('#tipo').on('change', function () {
+            var valor = $(this).val();
 
-                       
-                        //alert(valor);
-                    });
+            var encargado = $("selencargado1").val();
 
-                   
-                    //Para escribir solo numeros
-                    //$("#cel_gerente").validCampoFranz("(000)-00-00-000");
+            if (valor == "Sucursal") {
+                $("#seldepartamento").val("0");
+                $("#suc").show();
+                $("#suc").attr("required", true);
+                $("#deps").hide();
+                $("#deps").attr("required", false);
 
-                    
-                    
+                $("#telefono").text("Telefono Sucursal");
+                $("#ext").text("Ext Sucursal");
+                $("#crearDir").attr("disabled", false);
+                $("#divDireccion").show();
+                $("#divEmailSucursal").show();
+                $("#divCelEncargado1").hide();
+            }
 
-                     });
+            if (valor == "Staff") {
+
+                $("#selsucursal").val("0");
+                $("#deps").show();
+                $("#deps").attr("required", true);
+                $("#suc").hide();
+                $("#suc").attr("required", false);
+                $("#telefono").text("Telefono Departamento");
+                $("#ext").text("Ext Departamento");
+                $("#crearDir").attr("disabled", false);
+                $("#divDireccion").hide();
+                $("#divEmailSucursal").hide();
+                $("#divCelEncargado1").show();
+
+            }
+
+            if (valor == 0) {
+                $("#suc").hide();
+                $("#deps").hide();
+                $("#telefono").text("");
+                $("#ext").text("");
+                $("#crearDir").attr("disabled", true);
+                $("#deps").attr("required", false);
+                $("#suc").attr("required", false);
+                $("#divDireccion").hide();
+                $("#divEmailSucursal").hide();
+                $("#divCelEncargado1").hide();
+            }
+
+
+            //alert(valor);
+        });
+
+
+        //Para escribir solo numeros
+        //$("#cel_gerente").validCampoFranz("(000)-00-00-000");
+        var btn = 1;
+
+        $("#btnAgregarAliado").click(function () {
+
+            btn = btn + 1;
+
+            if (btn <= 5) {
+
+                $("#divencargado" + btn).show();
+
+            }
+
+
+        });
+
+
+
+
+    });
 </script>
