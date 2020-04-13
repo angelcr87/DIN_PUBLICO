@@ -32,8 +32,12 @@
                     @using (Html.BeginForm("iniciarSesion", "sesiones", FormMethod.Post))
                     {
 
+                  
+                        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
 
-                    @Html.AntiForgeryToken();
+                
+
+                        @Html.AntiForgeryToken();
                     <div class="panel panel-default">
                         <div class="panel-heading"><h2>Iniciar Sesion</h2></div>
                         <div class="panel-body">
