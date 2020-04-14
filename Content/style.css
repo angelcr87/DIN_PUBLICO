@@ -4572,6 +4572,16 @@ h1 {
     border: solid 2px black;
 }
 
+.directorioSeccion2{
+    /*background-color:lavenderblush;*/
+    background-color:#FAFAFA;
+    padding: 7px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    
+    border: solid 2px black;
+}
+
 .directorioSuc {
 
     color:black;

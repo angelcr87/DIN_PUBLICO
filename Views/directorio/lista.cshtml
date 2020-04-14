@@ -54,19 +54,31 @@
                                 <br />
                                 <br />
                                 <p><span style="font-weight:bold;">Horario:</span> @String.Format("{0:00}", item.horario_apertura.Hours):@String.Format("{0:00}", item.horario_apertura.Minutes) - @String.Format("{0:00}", item.horario_cierrre.Hours):@String.Format("{0:00}", item.horario_cierrre.Minutes)  </p>
-                                <p><span style="font-weight:bold;">Encargado de Empeños:</span> @item.gerente_zona.ToUpper()</p>
-                                <p>@*<span style="font-weight:bold;">Cel. Gerente:</span> @item.cel_gerente*@</p>
+                                <p><span style="font-weight:bold;">Gerente de zona:</span> @item.gerente_zona.ToUpper()</p>
+                                <p><span style="font-weight:bold;">Cel. Gerente:</span> @item.cel_gerente</p>
                                 @*<p></p>*@
                                 <p>
 
 
-                                    <span style="font-weight:bold;">Email Encargado:</span>
+                                    <span style="font-weight:bold;">Email Gerente:</span>
                                     @if (item.email_gerente != "")
                                     {
 
                                         @item.email_gerente
 
 
+                                    }
+                                    else
+                                    {
+                                        <span>NA</span>
+                                    }
+                                </p>
+
+                                <p>
+                                    <span style="font-weight:bold;">Direccion Sucursal:</span>
+                                    @if (item.direccion != "")
+                                    {
+                                        @item.direccion
                                     }
                                     else
                                     {
@@ -118,6 +130,8 @@
                                         <span>NA</span>
                                     }
                                 </p>
+
+                               
 
                             </div>
 
@@ -152,19 +166,31 @@
                                 <br />
                                 <br />
                                 <p><span style="font-weight:bold;">Horario:</span> @String.Format("{0:00}", item.horario_apertura.Hours):@String.Format("{0:00}", item.horario_apertura.Minutes) - @String.Format("{0:00}", item.horario_cierrre.Hours):@String.Format("{0:00}", item.horario_cierrre.Minutes)  </p>
-                                <p><span style="font-weight:bold;">Encargado ventas:</span> @item.gerente_zona.ToUpper()</p>
+                                <p><span style="font-weight:bold;">Encargado de Empeños:</span> @item.gerente_zona.ToUpper()</p>
                                 <p>@*<span style="font-weight:bold;">cel:</span> @item.cel_gerente*@</p>
                                 @*<p></p>*@
                                 <p>
 
 
-                                    <span style="font-weight:bold;">Correo Encargado:</span>
+                                    <span style="font-weight:bold;">Correo Empeños:</span>
                                     @if (item.email_gerente != "")
                                     {
 
                                         @item.email_gerente
 
 
+                                    }
+                                    else
+                                    {
+                                        <span>NA</span>
+                                    }
+                                </p>
+
+                                <p>
+                                    <span style="font-weight:bold;">Telefono Empeños:</span>
+                                    @if (item.cel_gerente != "")
+                                    {
+                                        @item.cel_gerente
                                     }
                                     else
                                     {
@@ -179,7 +205,7 @@
                                 <br />
 
                                 <p>
-                                    <span style="font-weight:bold;">Encargado:</span>
+                                    <span style="font-weight:bold;">Encargado Ventas:</span>
                                     @if (item.encargado1 != "")
                                     {
                                         @item.encargado1.ToUpper()
@@ -190,32 +216,31 @@
                                     }
                                 </p>
 
-
-
                                 <p>
-                                    <span style="font-weight:bold;">Tel: Sucursal</span>
-                                    @if (item.telefono_suc != "")
+                                    <span style="font-weight:bold;">Correo Ventas:</span>
+                                    @if (item.email_encargado1 != "")
                                     {
-                                        @item.telefono_suc
-                                    }
-                                    else
-                                    {
-                                        <span>NA</span>
-                                    }
-
-                                </p>
-
-                                <p>
-                                    <span style="font-weight:bold;">Correo Sucursal:</span>
-                                    @if (item.email_Sucursal != "")
-                                    {
-                                        @item.email_Sucursal
+                                        @item.email_encargado1
                                     }
                                     else
                                     {
                                         <span>NA</span>
                                     }
                                 </p>
+
+                                <p>
+                                    <span style="font-weight:bold;">Telefono Ventas:</span>
+                                    @if (item.cel_encargado1 != "")
+                                    {
+                                        @item.cel_encargado1
+                                    }
+                                    else
+                                    {
+                                        <span>NA</span>
+                                    }
+                                </p>
+
+                              
 
                             </div>
 
@@ -241,12 +266,12 @@
             @foreach (var item in Model.Where(s => s.tipo == "Staff"))
             {
                 @* SECCION DE UNA SUCURSAL *@
-                <div class="row directorioSeccion" id="@item.sucursal.ToUpper().Replace(" ","_")">
+                <div class="row directorioSeccion2" id="@item.sucursal.ToUpper().Replace(" ","_")">
                     <div class="col-md-4">
                         @* seccion de la foto y el título *@
                         <center><h4 class="directorioSuc">@item.sucursal.ToUpper()</h4></center>
                         <center>
-                            <img class="imgDirectorio" src="~/assets/moneda.jpg" style="width:30%; height:auto; font-weight:bold;">
+                            <img class="imgDirectorio" src="~/assets/moneda.png" style="width:30%; height:auto; font-weight:bold;">
                         </center>
 
                         @*<iframe class="mapDirectorio" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.5448634190262!2d-89.6306329921141!3d20.94530734397074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56722be651a1e1%3A0xe5d460f15c54bf10!2sDinero%20Inmediato!5e0!3m2!1ses!2smx!4v1585011411854!5m2!1ses!2smx" frameborder="0" style="border:0; " allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>*@
@@ -454,7 +479,7 @@
                     else {
                         //divs[i].style.display = "none";
                         //1er encargado
-                        var p2 = divs[i].getElementsByTagName("p")[4];
+                        var p2 = divs[i].getElementsByTagName("p")[5];
 
                         if (p2) {
                             txtValue = p2.innerText;
@@ -464,7 +489,7 @@
                             else {
                                 //divs[i].style.display = "none";
                                 //2do encargado
-                                var p3 = divs[i].getElementsByTagName("p")[6];
+                                var p3 = divs[i].getElementsByTagName("p")[7];
                                 if (p3) {
                                     txtValue = p3.innerText;
                                     if (txtValue.toUpperCase().indexOf(valor) > -1) {
@@ -497,7 +522,7 @@
         //var valor = $(this).val();
         //var div = document.getElementsByClassName("#main");
         //var divs = document.getElementsByClassName("directorioContenedor");
-        var divs = document.getElementsByClassName("directorioSeccion");
+        var divs = document.getElementsByClassName("directorioSeccion2");
 
 
         for (i = 0; i < divs.length; i++) {
@@ -515,30 +540,8 @@
                         divs[i].style.display = "";
                     }
                     else {
-                        //divs[i].style.display = "none";
-                        //1er encargado
-                        var p2 = divs[i].getElementsByTagName("p")[4];
-
-                        if (p2) {
-                            txtValue = p2.innerText;
-                            if (txtValue.toUpperCase().indexOf(valor) > -1) {
-                                divs[i].style.display = "";
-                            }
-                            else {
-                                //divs[i].style.display = "none";
-                                //2do encargado
-                                var p3 = divs[i].getElementsByTagName("p")[6];
-                                if (p3) {
-                                    txtValue = p3.innerText;
-                                    if (txtValue.toUpperCase().indexOf(valor) > -1) {
-                                        divs[i].style.display = "";
-                                    }
-                                    else {
-                                        divs[i].style.display = "none";
-                                    }
-                                }
-                            }
-                        }
+                        divs[i].style.display = "none";
+                        //1er encargado                
 
 
                     }
