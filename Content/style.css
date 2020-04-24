@@ -4609,3 +4609,92 @@ h1 {
 
     margin: 300px;
 }*/
+
+
+/*Inician estilos de organigramas */
+
+#chart-administracion {
+    position: relative;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  height: 420px;
+  width: calc(100% - 24px);
+  /*border: 2px dashed #aaa;*/
+  /*border-radius: 5px;*/
+  overflow: auto !important;
+  text-align: center;
+  background:none;
+}
+
+#chart-operaciones {
+    position: relative;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  height: 420px;
+  width: calc(100% - 24px);
+  /*border: 2px dashed #aaa;*/
+  /*border-radius: 5px;*/
+  overflow: auto !important;
+  text-align: center;
+  background:none;
+}
+
+#chart-programacion {
+    position: relative;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  height: 420px;
+  width: calc(100% - 24px);
+  /*border: 2px dashed #aaa;*/
+  /*border-radius: 5px;*/
+  overflow: auto !important;
+  text-align: center;
+  background:none;
+}
+
+#chart-contraloria {
+    position: relative;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  height: 420px;
+  width: calc(100% - 24px);
+  /*border: 2px dashed #aaa;*/
+  /*border-radius: 5px;*/
+  overflow: auto !important;
+  text-align: center;
+  background:none;
+}
+
+
+#chart-mercadotecnia {
+  position: relative;
+  display: inline-block;
+  top: 10px;
+  left: 10px;
+  height: 420px;
+  width: calc(100% - 24px);
+  /*border: 2px dashed #aaa;*/
+  /*border-radius: 5px;*/
+  overflow: auto !important;
+  text-align: center;
+  background:none;
+}
+
+.orgchart{
+    background-image:none !important;
+}
+.orgchart .node .title{
+    width:100% !important;
+}
+
+.orgchart .node{
+    width:180px;
+}
+
+
+
+/*Terminan estilos de organigramas*/
