@@ -217,6 +217,13 @@
                                     <a href="@Url.Content("http://10.10.0.2/helpdesk")" target="_blank">Help Desk</a>
 
                                 </li>
+                                <li>
+                                    @*@Html.ActionLink("Help Desk", "mantenimiento", "Home")*@
+                                    <a href="@Url.Content("http://10.10.0.2/DocumentoenLinea/")" target="_blank">Politicas y Proc   .</a>
+
+                                </li>
+
+                                
                                 @*<li><a href="#">Descuentos de Empleado</a></li>*@
                                 @*<li><a href="#">Recibos de Nomina</a></li>*@
                                 @*<li><a href="#">Vacantes internos</a></li>*@
@@ -246,7 +253,7 @@
                         @Html.Partial("_administracion")
 
                         @Html.Partial("_LoginPartial")
-                        <li style="float:right;" id="liBuzonInterno">
+                        @*<li style="float:right;" id="liBuzonInterno">
 
                             <a href="@Url.Content("http://10.10.0.2/buzonint/")" target="_blank">
                                 
@@ -254,7 +261,7 @@
                                 
                             </a>
 
-                        </li>
+                        </li>*@
 
 
                     </ul>
